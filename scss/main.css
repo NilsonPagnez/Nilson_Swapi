@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+  background-image: url(../image/MainBg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body {
+  min-height: 100vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: white;
+}
+body main {
+  max-width: 130rem;
+  width: 100%;
+  margin: 0 auto;
+}
+body main .logo {
+  height: 30rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+body main section {
+  border: 1rem double #ffc107;
+  background-color: black;
+}
+body main section .catalogo ul {
+  display: flex;
+  justify-content: space-around;
+}
+body main section .catalogo ul li {
+  font-size: 2rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-weight: 700;
+}
+body main section .catalogoInfo {
+  display: flex;
+  border-top: 3px solid #ffc107;
+  padding: 4rem 2.5rem;
+}
+body main section .catalogoInfo ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+body main section .catalogoInfo ul li {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+body main section .catalogoInfo .moreInfo {
+  max-width: 45rem;
+}/*# sourceMappingURL=main.css.map */

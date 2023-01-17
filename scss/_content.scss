@@ -1,0 +1,73 @@
+body{
+    min-height: 100vh;
+    height:  fit-content;
+    color: white;
+    //backdrop-filter: brightness(60%);
+
+    main{
+        max-width: 130rem;
+        width: 100%;
+        margin: 0 auto;
+        
+        
+        
+        .logo{
+          
+            height: 30rem;
+            position: relative;
+            
+            display: flex;
+            justify-content: center;
+            
+        
+        }
+        section{
+           
+            border: 1rem double #ffc107;
+            
+            background-color: black;
+            .catalogo{
+                ul{
+                    
+
+                    display: flex;
+                    justify-content: space-around;
+                    li{
+                        font-size: 2rem;
+                        cursor: pointer;
+                        width: 100%;
+                        text-align: center;
+                        padding: 1.5rem 0;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .catalogoInfo{
+                display: flex;
+                border-top: 3px solid #ffc107;
+                padding: 4rem 2.5rem;
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    max-width: 25rem;
+                    width: 100%;
+                    overflow: hidden;
+                    li{
+                        max-width: fit-content;
+                        font-size: 1.8rem;
+                        font-weight: 500;
+                        cursor: pointer;
+                    }
+                }
+                .moreInfo{
+                    max-width: 45rem;
+                    li{
+                        
+                    }
+                }
+            }
+        }
+    }
+}
