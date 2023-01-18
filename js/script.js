@@ -143,11 +143,12 @@ selectCatalog.forEach((catalogo, index) => {
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
                 showMoreButtonDiv.innerHTML= ' '
-                CatalogImage.src =""
+                CatalogImage.style.display ='none'
                 
                 next == 1
 
                 await showInfo('films')
+                CatalogImage.style.display ='block'
                 CatalogImage.src ="image/filme.jpg"
 
                 break
@@ -155,11 +156,12 @@ selectCatalog.forEach((catalogo, index) => {
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
                 showMoreButtonDiv.innerHTML= ' '
-                CatalogImage.src =""
+                CatalogImage.style.display ='none'
                 next = 1
                 
                 await showInfo(`people/?page=${next}`)//teste
                 CatalogImage.src ="image/vader.png"
+                CatalogImage.style.display ='block'
                 ButtonShowMore('people')
 
                 
@@ -170,45 +172,51 @@ selectCatalog.forEach((catalogo, index) => {
                 moreInfo.innerHTML = ' '
                 showMoreButtonDiv.innerHTML= ' '
                 CatalogImage.src =''
+                CatalogImage.style.display ='none'
                 next = 1
                 
                 await showInfo(`planets/?page=${next}`)//teste
                 ButtonShowMore('planets')
                 CatalogImage.src ="image/planet.png"
+                CatalogImage.style.display ='block'
                 break
             case 3:
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
                 showMoreButtonDiv.innerHTML= ' '
-                CatalogImage.src =""
+                CatalogImage.style.display ='none'
                 next = 1
                 
                 await showInfo(`species/?page=${next}`)//teste
                 ButtonShowMore('species')
                 CatalogImage.src ="image/especies.png"
+                CatalogImage.style.display ='block'
                 break
             case 4:
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
                 showMoreButtonDiv.innerHTML= ' '
-                CatalogImage.src =""
+                CatalogImage.style.display ='none'
                 next = 1
                 
                 
                 await showInfo(`starships/?page=${next}`)//teste
                 ButtonShowMore('starships')
                 CatalogImage.src ="image/naves.png"
+                CatalogImage.style.display ='block'
                 break
             case 5:
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
                 showMoreButtonDiv.innerHTML= ' '
-                CatalogImage.src =""
+                CatalogImage.style.display ='none'
+
                 next = 1
                 
                 await showInfo(`vehicles/?page=${next}`)//teste
                 ButtonShowMore('vehicles')
                 CatalogImage.src ="image/veiculo.png"
+                CatalogImage.style.display ='block'
                 break
         }
       
