@@ -4,6 +4,7 @@ const firstInfoLi = document.querySelectorAll('.js-firstInfoli')
 const catalogoInfo = document.querySelector('.catalogoInfo')
 const selectCatalog = document.querySelectorAll(".catalogoSelection")
 const moreInfo = document.querySelector(".js-more-info")
+const showMoreButtonDiv = document.querySelector('.showMoreButtonDiv')
 
 let next = 1
 const fetchSwapi = async (info) => {
@@ -71,24 +72,15 @@ const showInfo = async (info) =>{
             
             
         }
-/*
-        const showMore = function(){
-            const buttonMore = document.createElement('button')
-            firstInfoDiv.appendChild(buttonMore)
-            buttonMore.innerText = 'Mostra mais'
-            buttonMore.addEventListener('click', ()=>{
-                next = next + 1
-                showCatalogInfo()
 
-            })
-        }
+       
+           
+
         
         
-        if(info !== 'films'){
+        
+        
 
-            showMore()
-        }
-*/
         showCatalogInfo()
         
     }else{
@@ -119,31 +111,82 @@ const showInfo = async (info) =>{
 
 
 }
+
+ function ButtonShowMore(catalog){
+
+    showMoreButtonDiv.innerHTML= ' '
+
+    const buttonMore = document.createElement('button')
+    showMoreButtonDiv.appendChild(buttonMore)
+    buttonMore.innerText = 'Mostra mais'    
+
+    
+                
+        buttonMore.addEventListener('click', ()=>{
+            next = next + 1
+            showInfo(`${catalog}/?page=${next}`)
+
+             })
+          
+} 
+
 selectCatalog.forEach((catalogo, index) => {
     catalogo.addEventListener('click', ()=>{
-        firstInfo.innerHTML = ' '
-        moreInfo.innerHTML = ' '
+        
 
         
         
         switch(index){
             case 0:
+                firstInfo.innerHTML = ' '
+                moreInfo.innerHTML = ' '
+                showMoreButtonDiv.innerHTML= ' '
+                
+                next == 1
+
                 showInfo('films')
                 break
             case 1:
+                firstInfo.innerHTML = ' '
+                moreInfo.innerHTML = ' '
+                
+                next = 1
+                
                 showInfo(`people/?page=${next}`)//teste
                 
+                ButtonShowMore('people')
+
+                
+               
                 break
             case 2:
+                firstInfo.innerHTML = ' '
+                moreInfo.innerHTML = ' '
+                next = 1
+                
                 showInfo(`planets/?page=${next}`)//teste
+                ButtonShowMore('planets')
                 break
             case 3:
+                firstInfo.innerHTML = ' '
+                moreInfo.innerHTML = ' '
+                next = 1
+                
                 showInfo(`species/?page=${next}`)//teste
                 break
             case 4:
+                firstInfo.innerHTML = ' '
+                moreInfo.innerHTML = ' '
+                next = 1
+                
+                
                 showInfo(`starships/?page=${next}`)//teste
                 break
             case 5:
+                firstInfo.innerHTML = ' '
+                moreInfo.innerHTML = ' '
+                next = 1
+                
                 showInfo(`vehicles/?page=${next}`)//teste
                 break
         }

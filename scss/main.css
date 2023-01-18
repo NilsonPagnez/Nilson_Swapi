@@ -54,6 +54,13 @@ body main section .catalogoInfo .firstInfoDiv {
   max-width: 25rem;
   width: 100%;
 }
+body main section .catalogoInfo .firstInfoDiv .showMoreButtonDiv button {
+  background-color: #ffc107;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+}
 body main section .catalogoInfo ul {
   font-size: 1.8rem;
   display: flex;
