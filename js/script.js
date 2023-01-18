@@ -1,8 +1,11 @@
-
+const firstInfoDiv = document.querySelector('.firstInfoDiv')
 const firstInfo = document.querySelector('.js-firstInfo')
 const firstInfoLi = document.querySelectorAll('.js-firstInfoli')
+const catalogoInfo = document.querySelector('.catalogoInfo')
 const selectCatalog = document.querySelectorAll(".catalogoSelection")
 const moreInfo = document.querySelector(".js-more-info")
+
+let next = 1
 const fetchSwapi = async (info) => {
     const apiResponse = await fetch (`https://swapi.dev/api/${info}`)
     if(apiResponse.status == 200){
@@ -13,8 +16,15 @@ const fetchSwapi = async (info) => {
 }
 
 const showInfo = async (info) =>{
-   
+    firstInfo.innerHTML = 'Carregando'
+    firstInfoDiv.style.padding = '4rem 2.5rem 4rem 2.5rem  '
+    moreInfo.style.padding = '4rem 2.5rem'
+    catalogoInfo.style.borderTop = '0.3rem solid #ffc107'
+    
+    
+
     const data = await fetchSwapi(info)
+
     if(data){
         
         result = data.results
@@ -32,19 +42,20 @@ const showInfo = async (info) =>{
                     case 'films':
                         mainLi.innerHTML = resultado.title
                         break
-                    case 'people':
+                    case `people/?page=${next}`:
+                        mainLi.innerHTML = resultado.name
+                        
+                        break
+                    case `planets/?page=${next}`:
                         mainLi.innerHTML = resultado.name
                         break
-                    case 'planets':
+                    case `species/?page=${next}`:
                         mainLi.innerHTML = resultado.name
                         break
-                    case 'species':
+                    case `starships/?page=${next}`:
                         mainLi.innerHTML = resultado.name
                         break
-                    case 'starships':
-                        mainLi.innerHTML = resultado.name
-                        break
-                    case 'vehicles':
+                    case `vehicles/?page=${next}`:
                         mainLi.innerHTML = resultado.name
                         break
                    }
@@ -59,12 +70,27 @@ const showInfo = async (info) =>{
             });
             
             
-            
-            
-            
         }
-       
+/*
+        const showMore = function(){
+            const buttonMore = document.createElement('button')
+            firstInfoDiv.appendChild(buttonMore)
+            buttonMore.innerText = 'Mostra mais'
+            buttonMore.addEventListener('click', ()=>{
+                next = next + 1
+                showCatalogInfo()
+
+            })
+        }
+        
+        
+        if(info !== 'films'){
+
+            showMore()
+        }
+*/
         showCatalogInfo()
+        
     }else{
         
     }
@@ -97,24 +123,28 @@ selectCatalog.forEach((catalogo, index) => {
     catalogo.addEventListener('click', ()=>{
         firstInfo.innerHTML = ' '
         moreInfo.innerHTML = ' '
+
+        
+        
         switch(index){
             case 0:
                 showInfo('films')
                 break
             case 1:
-                showInfo('people')//teste
+                showInfo(`people/?page=${next}`)//teste
+                
                 break
             case 2:
-                showInfo('planets')//teste
+                showInfo(`planets/?page=${next}`)//teste
                 break
             case 3:
-                showInfo('species')//teste
+                showInfo(`species/?page=${next}`)//teste
                 break
             case 4:
-                showInfo('starships')//teste
+                showInfo(`starships/?page=${next}`)//teste
                 break
             case 5:
-                showInfo('vehicles')//teste
+                showInfo(`vehicles/?page=${next}`)//teste
                 break
         }
       
