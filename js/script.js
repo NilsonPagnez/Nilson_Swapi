@@ -6,6 +6,8 @@ const selectCatalog = document.querySelectorAll(".catalogoSelection")
 const moreInfo = document.querySelector(".js-more-info")
 const showMoreButtonDiv = document.querySelector('.showMoreButtonDiv')
 
+const CatalogImage = document.querySelector('.CatalogImage')
+
 let next = 1
 const fetchSwapi = async (info) => {
     const apiResponse = await fetch (`https://swapi.dev/api/${info}`)
@@ -131,7 +133,7 @@ const showInfo = async (info) =>{
 } 
 
 selectCatalog.forEach((catalogo, index) => {
-    catalogo.addEventListener('click', ()=>{
+    catalogo.addEventListener('click', async ()=>{
         
 
         
@@ -141,19 +143,23 @@ selectCatalog.forEach((catalogo, index) => {
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
                 showMoreButtonDiv.innerHTML= ' '
+                CatalogImage.src =""
                 
                 next == 1
 
-                showInfo('films')
+                await showInfo('films')
+                CatalogImage.src ="image/filme.jpg"
+
                 break
             case 1:
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
-                
+                showMoreButtonDiv.innerHTML= ' '
+                CatalogImage.src =""
                 next = 1
                 
-                showInfo(`people/?page=${next}`)//teste
-                
+                await showInfo(`people/?page=${next}`)//teste
+                CatalogImage.src ="image/vader.png"
                 ButtonShowMore('people')
 
                 
@@ -162,32 +168,47 @@ selectCatalog.forEach((catalogo, index) => {
             case 2:
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
+                showMoreButtonDiv.innerHTML= ' '
+                CatalogImage.src =''
                 next = 1
                 
-                showInfo(`planets/?page=${next}`)//teste
+                await showInfo(`planets/?page=${next}`)//teste
                 ButtonShowMore('planets')
+                CatalogImage.src ="image/planet.png"
                 break
             case 3:
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
+                showMoreButtonDiv.innerHTML= ' '
+                CatalogImage.src =""
                 next = 1
                 
-                showInfo(`species/?page=${next}`)//teste
+                await showInfo(`species/?page=${next}`)//teste
+                ButtonShowMore('species')
+                CatalogImage.src ="image/especies.png"
                 break
             case 4:
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
+                showMoreButtonDiv.innerHTML= ' '
+                CatalogImage.src =""
                 next = 1
                 
                 
-                showInfo(`starships/?page=${next}`)//teste
+                await showInfo(`starships/?page=${next}`)//teste
+                ButtonShowMore('starships')
+                CatalogImage.src ="image/naves.png"
                 break
             case 5:
                 firstInfo.innerHTML = ' '
                 moreInfo.innerHTML = ' '
+                showMoreButtonDiv.innerHTML= ' '
+                CatalogImage.src =""
                 next = 1
                 
-                showInfo(`vehicles/?page=${next}`)//teste
+                await showInfo(`vehicles/?page=${next}`)//teste
+                ButtonShowMore('vehicles')
+                CatalogImage.src ="image/veiculo.png"
                 break
         }
       
